@@ -5,6 +5,7 @@ var logger = require('morgan');
 require('./config/database');
 
 var usersRouter = require('./app/routes/users');
+var criptoRouter = require('./app/routes/cripto');
 
 var app = express();
 
@@ -18,6 +19,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/users', usersRouter);
+app.use('/criptos', criptoRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
